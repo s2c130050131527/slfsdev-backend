@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "main": "src/server.js",
-  "engines": {
-    "node": "12.14.0"
-  },
   "scripts": {
     "start": "babel-node src/server.js",
     "serve": "nodemon src/server.js --exec babel-node",
