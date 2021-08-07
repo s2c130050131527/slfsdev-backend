@@ -6,7 +6,7 @@ import mongoose from '~/core/mongoose';
 import { PORT, HOST } from './env';
 import app from './app';
 
-require('dotenv').config();
+require('dotenv').config({ path: '../.env' });
 
 const teal500 = chalk.hex('#009688');
 
