@@ -2,10 +2,10 @@
   "name": "express-starter",
   "version": "1.0.0",
   "private": true,
-  "main": "src/server.js",
+  "main": "server.js",
   "scripts": {
-    "start": "babel-node src/server.js",
-    "serve": "nodemon src/server.js --exec babel-node",
+    "start": "babel-node server.js",
+    "serve": "nodemon server.js --exec babel-node",
     "lint": "eslint 'src/**/*.js'",
     "create-env": "printenv > .env"
   },

@@ -3,8 +3,8 @@ import chalk from 'chalk';
 
 import mongoose from '~/core/mongoose';
 
-import { PORT, HOST } from './env';
-import app from './app';
+import { PORT, HOST } from './src/env';
+import app from './src/app';
 
 require('dotenv').config({ path: '.env' });
 
