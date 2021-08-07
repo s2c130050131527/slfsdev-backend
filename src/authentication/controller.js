@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import passport from 'passport';
+import User from './models';
 // import bcrypt from 'bcrypt';
 // import jwt from 'jsonwebtoken';
 // // import otp from 'otplib';
@@ -11,25 +12,27 @@ import passport from 'passport';
 
 const controller = (() => {
   const router = Router();
-  router.get('/google/login', (req, res, next) => {
-    passport.authenticate('google')(req, res, next);
-  });
-
-  router.get(
-    '/google/callback',
-    passport.authenticate('google', {
-      failureRedirect: 'http://localhost:3000/login',
-    }),
-    (req, res) => {
-      if (req.user && req.user.permissions.length === 0) {
-        res.redirect('http://localhost:3000/settings');
+  router.post('/signup', (req, res, next) => {
+    User.register(new User({ username: req.body.username }), req.body.password, (err, user) => {
+      if (err) {
+        console.log(err);
+        res.status(500).json({ error: 'Something went wrong' });
       }
-      res.redirect('http://localhost:3000/main');
-    },
-  );
-
-  router.post('/google/token', passport.authenticate('google-token'), (req, res) => {
-    res.json({ user: req.user });
+      passport.authenticate('local')(req, res, () => {
+        res.status(201).json({ data: user });
+      });
+    });
+  });
+  router.post('/login', passport.authenticate('local'), (req, res) => {
+    if (req.user) {
+      res.status(200).json({
+        data: {
+          user: req.user.username,
+        },
+      });
+      return;
+    }
+    res.status(401).json({ error: 'Unauthorized' });
   });
 
   return router;

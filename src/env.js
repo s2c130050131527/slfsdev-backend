@@ -1,3 +1,5 @@
+require('dotenv').config({ path: '../.env' });
+
 export const NODE_ENV = process.env.NODE_ENV || 'development';
 export const INDEX_NAME = process.env.INDEX_NAME || 'local';
 
@@ -6,7 +8,7 @@ export const PORT = process.env.PORT || 9000;
 
 export const SECRET_KEY = process.env.SECRET_KEY || 'jbmpHPLoaV8N0nEpuLxlpT95FYakMPiu';
 
-console.log(process.env.MONGODB_URI);
+console.log(process.env.MONGODB_URI, 'MONGO_URI');
 
 export const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/test';
 

@@ -52,7 +52,7 @@ const userSchema = new Schema({
   },
 });
 
-export const UserColl = mongoose.model('User', userSchema);
+export const UserColl = mongoose.model('UserOld', userSchema);
 
 const refreshTokenSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'User' },
