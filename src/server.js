@@ -6,7 +6,7 @@ import mongoose from '~/core/mongoose';
 import { PORT, HOST } from './env';
 import app from './app';
 
-require('dotenv').config({ path: '../.env' });
+require('dotenv').config({ path: '.env' });
 
 console.log(process.env);
 
