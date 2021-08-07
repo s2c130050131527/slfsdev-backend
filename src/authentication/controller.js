@@ -17,13 +17,15 @@ const controller = (() => {
       if (err) {
         console.log(err);
         res.status(500).json({ error: 'Something went wrong' });
+        return;
       }
       passport.authenticate('local')(req, res, () => {
         res.status(201).json({ data: user });
       });
     });
   });
-  router.post('/login', passport.authenticate('local'), (req, res) => {
+
+  router.post('/login', passport.authenticate('local', { session: true }), (req, res) => {
     if (req.user) {
       res.status(200).json({
         data: {

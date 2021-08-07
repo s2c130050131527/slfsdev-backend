@@ -3,8 +3,11 @@ import { Router } from 'express';
 import { INDEX_NAME } from '~/env';
 import crudOperations from '~/crud-operations';
 import authentication from '~/authentication';
+import courseOps from '~/course-ops';
 
 const router = Router();
+
+// eslint-disable-next-line consistent-return
 
 router.get('/', (req, res) => {
   res.send(`app-root, ${INDEX_NAME} mode`);
@@ -17,5 +20,6 @@ router.get('/me', (req, res) => {
 
 router.use(crudOperations.prefix, crudOperations);
 router.use(authentication.prefix, authentication);
+router.use(courseOps.prefix, courseOps);
 
 export default router;
