@@ -6,6 +6,8 @@ import mongoose from '~/core/mongoose';
 import { PORT, HOST } from './env';
 import app from './app';
 
+require('dotenv').config();
+
 const teal500 = chalk.hex('#009688');
 
 app.listen(Number(PORT), HOST, () => {
