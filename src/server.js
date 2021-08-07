@@ -8,6 +8,8 @@ import app from './app';
 
 require('dotenv').config({ path: '../.env' });
 
+console.log(process.env);
+
 const teal500 = chalk.hex('#009688');
 
 app.listen(Number(PORT), HOST, () => {
