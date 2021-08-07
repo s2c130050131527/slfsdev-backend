@@ -59,6 +59,10 @@ const controller = (() => {
       },
     );
   });
+  router.get('/logout', passport.authenticate('jwt', { session: false }), function (req, res) {
+    req.logout();
+    res.json({ success: true, msg: 'Sign out successfully.' });
+  });
 
   return router;
 })();
