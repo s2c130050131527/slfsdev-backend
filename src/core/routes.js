@@ -1,5 +1,6 @@
 import { Router } from 'express';
 
+import passport from 'passport';
 import { INDEX_NAME } from '~/env';
 import crudOperations from '~/crud-operations';
 import authentication from '~/authentication';
@@ -20,6 +21,6 @@ router.get('/me', (req, res) => {
 
 router.use(crudOperations.prefix, crudOperations);
 router.use(authentication.prefix, authentication);
-router.use(courseOps.prefix, courseOps);
+router.use(courseOps.prefix, passport.authenticate('jwt', { session: false }), courseOps);
 
 export default router;

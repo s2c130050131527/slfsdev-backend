@@ -9,8 +9,9 @@ import session from 'express-session';
 import MongoStore from 'connect-mongo';
 import * as Sentry from '@sentry/node';
 
+import passport from 'passport';
 import routes from '~/core/routes';
-import passport from '~/core/passport';
+import passportConf from '~/core/passport';
 import mongoose from '~/core/mongoose';
 import winston from '~/core/winston';
 
@@ -39,6 +40,7 @@ app.use(
   }),
 );
 app.use(passport.initialize());
+passportConf(passport);
 app.use(passport.session());
 
 if (NODE_ENV === 'production') app.use(Sentry.Handlers.requestHandler());

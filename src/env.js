@@ -1,16 +1,13 @@
-require('dotenv').config({ path: '../.env' });
-
 export const NODE_ENV = process.env.NODE_ENV || 'development';
 export const INDEX_NAME = process.env.INDEX_NAME || 'local';
 
 export const HOST = process.env.HOST || '0.0.0.0';
 export const PORT = process.env.PORT || 9000;
 
-export const SECRET_KEY = process.env.SECRET_KEY || 'jbmpHPLoaV8N0nEpuLxlpT95FYakMPiu';
+export const SECRET_KEY = 'jbmpHPLoaV8N0nEpuLxlpT95FYakMPiu';
 
-console.log(process.env.MONGODB_URI, 'MONGO_URI');
-
-export const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/test';
+export const MONGODB_URI =
+  'mongodb+srv://sn:ihA7VxnVMz6-T_J@slotmarker1.dtmxr.mongodb.net/slotmarker1?retryWrites=true&w=majority';
 
 // ---
 
