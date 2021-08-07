@@ -38,9 +38,7 @@
     "passport-jwt": "4.0.0",
     "pm2": "3.5.1",
     "winston": "3.2.1",
-    "ws": "^7.4.1"
-  },
-  "devDependencies": {
+    "ws": "^7.4.1",
     "@babel/cli": "7.12.10",
     "@babel/core": "7.12.10",
     "@babel/eslint-parser": "^7.14.3",
@@ -63,5 +61,8 @@
     "jest": "24.8.0",
     "nodemon": "1.19.1",
     "prettier": "1.18.2"
+  },
+  "devDependencies": {
+
   }
 }
