@@ -1,11 +1,10 @@
 steps:
   - name: 'gcr.io/cloud-builders/npm'
     args: ['install']
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['run', 'create-env']
+  - id: 'render-app-yaml'
+    name: 'gcr.io/${PROJECT_ID}/envsubst'
+    args: ['api.yaml']
     env:
-      - 'GOOGLE_CLIENT_ID=${_GCID}'
-      - 'GOOGLE_CLIENT_SECRET=${_GCS}'
       - 'SECRET_KEY=${_SECRET_KEY}'
       - 'MONGODB_URI=${_MURI}'
   - name: 'gcr.io/cloud-builders/gcloud'
