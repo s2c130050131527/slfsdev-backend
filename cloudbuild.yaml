@@ -2,7 +2,7 @@ steps:
   - name: 'gcr.io/cloud-builders/npm'
     args: ['install']
   - id: 'render-app-yaml'
-    name: 'gcr.io/cloud-builders/envsubst'
+    name: 'gcr.io/cloud-builders-community/envsubst'
     args: ['api.yaml']
     env:
       - 'SECRET_KEY=${_SECRET_KEY}'
