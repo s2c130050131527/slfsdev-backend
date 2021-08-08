@@ -48,7 +48,7 @@ const controller = (() => {
               // if user is found and password is right create a token
               const token = jwt.sign(user.toJSON(), SECRET_KEY);
               // return the information including token as JSON
-              res.json({ success: true, token: `JWT ${token}` });
+              res.json({ success: true, token: `JWT ${token}`, user: req.body.username });
             } else {
               res
                 .status(401)

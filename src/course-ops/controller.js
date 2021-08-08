@@ -13,6 +13,15 @@ const controller = (() => {
       res.status(500).json({ error: 'Something Went Wrong' });
     }
   });
+  router.post('/order', async (req, res, next) => {
+    console.log(req.user);
+    try {
+      const result = await CourseColl.find({}).exec();
+      res.status(200).json({ data: result });
+    } catch (e) {
+      res.status(500).json({ error: 'Something Went Wrong' });
+    }
+  });
   router.post('/putall', async (req, res, next) => {
     try {
       const result = await CourseColl.insertMany(req.body.data);

@@ -1,14 +1,12 @@
 /* eslint-disable import/first */
 /* eslint-disable no-console */
-import dotenv from 'dotenv';
 
-dotenv.config();
 import chalk from 'chalk';
 
 import mongoose from '~/core/mongoose';
 
-import { PORT, HOST } from './src/env';
-import app from './src/app';
+import { PORT, HOST } from '~/env';
+import app from '~/app';
 
 const teal500 = chalk.hex('#009688');
 
