@@ -1,16 +1,4 @@
 /* eslint-disable no-restricted-syntax */
-import { parse } from 'dotenv';
-import path from 'path';
-
-const envConfig = parse(path.resolve(__dirname, '../.env'), { debug: true });
-// eslint-disable-next-line guard-for-in
-for (const k in envConfig) {
-  if (k === 'MONGODB_URI') {
-    console.log(process.env[k], envConfig[k]);
-  }
-
-  process.env[k] = envConfig[k];
-}
 
 export const NODE_ENV = process.env.NODE_ENV || 'development';
 export const INDEX_NAME = process.env.INDEX_NAME || 'local';
