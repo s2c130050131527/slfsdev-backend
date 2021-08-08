@@ -1,5 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 
+console.log(process.env);
+
 export const NODE_ENV = process.env.NODE_ENV || 'development';
 export const INDEX_NAME = process.env.INDEX_NAME || 'local';
 
