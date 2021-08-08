@@ -7,7 +7,7 @@
     "start": "babel-node server.js",
     "serve": "nodemon server.js --exec babel-node",
     "lint": "eslint 'src/**/*.js'",
-    "create-env": "printenv > .env"
+    "create-env": "envsub  api.tml.yaml  app1.yaml"
   },
   "dependencies": {
     "@babel/cli": "7.12.10",
@@ -34,6 +34,7 @@
     "cors": "2.8.5",
     "cross-env": "5.2.0",
     "dotenv": "^10.0.0",
+    "envsub": "^4.0.7",
     "eslint": "6.3.0",
     "eslint-config-airbnb-base": "14.0.0",
     "eslint-config-prettier": "6.1.0",

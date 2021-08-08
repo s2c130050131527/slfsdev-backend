@@ -1,12 +1,11 @@
 steps:
   - name: 'gcr.io/cloud-builders/npm'
     args: ['install']
-  - id: 'render-app-yaml'
-    name: 'gcr.io/cloud-builders-community/envsubst'
-    args: ['api.yaml']
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'create-env']
     env:
       - 'SECRET_KEY=${_SECRET_KEY}'
       - 'MONGODB_URI=${_MURI}'
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['app', 'deploy', 'api.yaml', '-v', '$_GAE_VERSION']
+    args: ['app', 'deploy', 'app1.yaml', '-v', '$_GAE_VERSION']
 timeout: '1600s'
